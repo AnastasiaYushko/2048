@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-wrapper">
+        <!-- Боковая панель-->
+        <div class="sidebar">
+
+            <div id="register-message" class="hidden"></div>
+            <h2 id="player-name"></h2>
+            <div id="high-score"></div>
+
+            <button id="change-user" class="hidden">Авторизация</button>
+            <button id="register-button" class="hidden">Регистрация</button>
+            <button id="exit" class="hidden">Выйти с аккаунта</button>
+            <button id="delete-account" class="hidden">Удалить аккаунт</button>
+
+            <!-- Форма логина-->
+            <div id="login-form" class="hidden">
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" readonly onfocus="this.removeAttribute('readonly');"
+                    autocomplete="off"><br><br>
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" readonly
+                    onfocus="this.removeAttribute('readonly');" autocomplete="off"><br><br>
+
+                <div class="login-buttons-container">
+                    <button id="submit-login">Войти</button>
+                    <button id="close-login">Закрыть</button>
+                </div>
+            </div>
+
+            <!-- Форма регистрации -->
+            <div id="register-form" class="hidden">
+                <label for="register-name">Имя:</label>
+                <input type="text" id="register-name" name="register-name" autocomplete="off"><br><br>
+
+                <label for="register-login">Логин:</label>
+                <input type="text" id="register-login" name="register-login" autocomplete="off"><br><br>
+
+                <label for="register-password">Пароль:</label>
+                <input type="password" id="register-password" name="register-password" autocomplete="off"><br><br>
+
+                <div class="register-buttons-container">
+                    <button id="submit-register">Ок</button>
+                    <button id="close-register">Закрыть</button>
+                </div>
+                <div id="register-message-error"></div>
+            </div>
+
+            <div id="error-message"></div>
+
+            <!-- Модальное окно удаление пользователя-->
+            <div id="delete-confirmation-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Вы уверены, что хотите удалить аккаунт?</h2>
+                    <p>Это действие необратимо.</p>
+                    <div class="modal-buttons">
+                        <button id="confirm-delete">Да</button>
+                        <button id="cancel-delete">Нет</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Модальное окно окончания игры-->
+            <div id="game-over-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2 id="game-over-title">Игра окончена!</h2>
+                    <p id="game-over-message"></p>
+                </div>
+            </div>
+        </div>
+        <!-- Игровое поле-->
+        <div class="container">
+            <h1>2048</h1>
+            <div class="score-container">
+                Счет: <span id="score">0</span>
+            </div>
+            <div class="grid-container">
+                <div class="grid-cell" id="cell-0-0"></div>
+                <div class="grid-cell" id="cell-0-1"></div>
+                <div class="grid-cell" id="cell-0-2"></div>
+
+                <div class="grid-cell" id="cell-1-0"></div>
+                <div class="grid-cell" id="cell-1-1"></div>
+                <div class="grid-cell" id="cell-1-2"></div>
+
+                <div class="grid-cell" id="cell-2-0"></div>
+                <div class="grid-cell" id="cell-2-1"></div>
+                <div class="grid-cell" id="cell-2-2"></div>
+            </div>
+            <button id="restart-game">Начать заново</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
